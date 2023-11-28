@@ -1,0 +1,351 @@
+{
+    "widgets": [
+        {
+            "height": 7,
+            "width": 2,
+            "x": 0,
+            "y": 0,
+            "type": "metric",
+            "properties": {
+                "metrics": [
+                    [ "AWS/KafkaConnect", "WorkerCount", "ConnectorName", "source-connector" ],
+                    [ ".", "RunningTaskCount", ".", ".", { "region": "ap-northeast-2" } ],
+                    [ ".", "ErroredTaskCount", ".", ".", { "region": "ap-northeast-2" } ]
+                ],
+                "view": "singleValue",
+                "stacked": false,
+                "region": "ap-northeast-2",
+                "period": 10,
+                "stat": "Average",
+                "title": "Source Tasks"
+            }
+        },
+        {
+            "height": 7,
+            "width": 5,
+            "x": 2,
+            "y": 0,
+            "type": "metric",
+            "properties": {
+                "metrics": [
+                    [ "AWS/KafkaConnect", "CpuUtilization", "ConnectorName", "source-connector", { "region": "ap-northeast-2" } ],
+                    [ ".", "MemoryUtilization", ".", ".", { "region": "ap-northeast-2" } ]
+                ],
+                "view": "timeSeries",
+                "stacked": false,
+                "region": "ap-northeast-2",
+                "period": 10,
+                "stat": "Maximum",
+                "yAxis": {
+                    "left": {
+                        "min": 0,
+                        "max": 100
+                    }
+                },
+                "title": "Source CPU, Memroy"
+            }
+        },
+        {
+            "height": 7,
+            "width": 5,
+            "x": 7,
+            "y": 0,
+            "type": "metric",
+            "properties": {
+                "metrics": [
+                    [ "AWS/KafkaConnect", "SourceRecordWriteRate", "ConnectorName", "source-connector", { "region": "ap-northeast-2" } ],
+                    [ ".", "SourceRecordPollRate", ".", ".", { "region": "ap-northeast-2" } ]
+                ],
+                "view": "timeSeries",
+                "stacked": false,
+                "region": "ap-northeast-2",
+                "period": 10,
+                "stat": "Maximum",
+                "title": "Source Recode Rate",
+                "liveData": false,
+                "yAxis": {
+                    "left": {
+                        "min": 0,
+                        "max": 5000
+                    }
+                }
+            }
+        },
+        {
+            "height": 7,
+            "width": 5,
+            "x": 12,
+            "y": 0,
+            "type": "metric",
+            "properties": {
+                "metrics": [
+                    [ "AWS/KafkaConnect", "BytesInPerSec", "ConnectorName", "source-connector", { "region": "ap-northeast-2" } ],
+                    [ "AWS/KafkaConnect", "BytesOutPerSec", "ConnectorName", "source-connector", { "region": "ap-northeast-2" } ]
+                ],
+                "view": "timeSeries",
+                "stacked": false,
+                "region": "ap-northeast-2",
+                "period": 10,
+                "stat": "Maximum",
+                "title": "Source Trans Bytes/s",
+                "liveData": false,
+                "yAxis": {
+                    "left": {
+                        "min": 0,
+                        "showUnits": true
+                    }
+                }
+            }
+        },
+        {
+            "height": 7,
+            "width": 2,
+            "x": 0,
+            "y": 7,
+            "type": "metric",
+            "properties": {
+                "metrics": [
+                    [ "AWS/Kafka", "KafkaDataLogsDiskUsed", "Cluster Name", "workshop-msk-cluster", "Broker ID", "1", { "region": "ap-northeast-2" } ],
+                    [ "...", "2" ],
+                    [ "...", "3" ],
+                    [ "...", "4" ]
+                ],
+                "sparkline": true,
+                "view": "singleValue",
+                "region": "ap-northeast-2",
+                "stacked": true,
+                "stat": "Average",
+                "period": 10,
+                "setPeriodToTimeRange": true,
+                "liveData": false,
+                "title": "MSK Disk Usage"
+            }
+        },
+        {
+            "height": 7,
+            "width": 5,
+            "x": 2,
+            "y": 7,
+            "type": "metric",
+            "properties": {
+                "metrics": [
+                    [ "AWS/Kafka", "CpuUser", "Cluster Name", "workshop-msk-cluster", "Broker ID", "1", { "region": "ap-northeast-2" } ],
+                    [ "...", "2" ],
+                    [ "...", "3" ],
+                    [ "...", "4" ]
+                ],
+                "region": "ap-northeast-2",
+                "view": "timeSeries",
+                "stacked": false,
+                "title": "MSK Broker CPU",
+                "period": 10,
+                "stat": "Average",
+                "yAxis": {
+                    "left": {
+                        "min": 0,
+                        "max": 100
+                    }
+                }
+            }
+        },
+        {
+            "height": 7,
+            "width": 5,
+            "x": 7,
+            "y": 7,
+            "type": "metric",
+            "properties": {
+                "metrics": [
+                    [ "AWS/Kafka", "NetworkTxPackets", "Cluster Name", "workshop-msk-cluster", "Broker ID", "1", { "region": "ap-northeast-2", "label": "1 Tx" } ],
+                    [ ".", "NetworkRxPackets", ".", ".", ".", ".", { "region": "ap-northeast-2", "label": "1 Rx" } ],
+                    [ ".", "NetworkTxPackets", ".", ".", ".", "2", { "region": "ap-northeast-2", "label": "2 Tx" } ],
+                    [ ".", "NetworkRxPackets", ".", ".", ".", ".", { "region": "ap-northeast-2", "label": "2 Rx" } ],
+                    [ ".", "NetworkTxPackets", ".", ".", ".", "3", { "label": "3 Tx" } ],
+                    [ ".", "NetworkRxPackets", ".", ".", ".", ".", { "label": "3 Rx" } ],
+                    [ ".", "NetworkTxPackets", ".", ".", ".", "4", { "label": "4 Tx" } ],
+                    [ ".", "NetworkRxPackets", ".", ".", ".", ".", { "label": "4 Rx" } ]
+                ],
+                "region": "ap-northeast-2",
+                "view": "timeSeries",
+                "stacked": false,
+                "title": "MSK Network Tx/Rx",
+                "period": 10,
+                "stat": "Average",
+                "yAxis": {
+                    "left": {
+                        "min": 0
+                    }
+                }
+            }
+        }, 
+        {
+            "height": 7,
+            "width": 5,
+            "x": 12,
+            "y": 7,
+            "type": "metric",
+            "properties": {
+                "metrics": [
+                    [ "AWS/Kafka", "BytesInPerSec", "Cluster Name", "workshop-msk-cluster", "Broker ID", "1", { "region": "ap-northeast-2", "label": "1 Bytes In" } ],
+                    [ ".", "BytesOutPerSec", ".", ".", ".", ".", { "region": "ap-northeast-2", "label": "1 Bytes Out" } ],
+                    [ ".", "BytesInPerSec", ".", ".", ".", "2", { "region": "ap-northeast-2", "label": "2 Bytes In" } ],
+                    [ ".", "BytesOutPerSec", ".", ".", ".", ".", { "region": "ap-northeast-2", "label": "2 Bytes Out" } ],
+                    [ ".", "BytesInPerSec", ".", ".", ".", "3", { "label": "3 Bytes In" } ],
+                    [ ".", "BytesOutPerSec", ".", ".", ".", ".", { "label": "3 Bytes Out" } ],
+                    [ ".", "BytesInPerSec", ".", ".", ".", "3", { "label": "4 Bytes In" } ],
+                    [ ".", "BytesOutPerSec", ".", ".", ".", ".", { "label": "4 Bytes Out" } ]
+                ],
+                "view": "timeSeries",
+                "stacked": false,
+                "region": "ap-northeast-2",
+                "stat": "Maximum",
+                "period": 10,
+                "title": "MSK Trans Bytes/s"
+            }
+        },   
+        {
+            "height": 7,
+            "width": 2,
+            "x": 0,
+            "y": 14,
+            "type": "metric",
+            "properties": {
+                "metrics": [
+                    [ "AWS/KafkaConnect", "WorkerCount", "ConnectorName", "target-connector" ],
+                    [ ".", "RunningTaskCount", ".", ".", { "region": "ap-northeast-2" } ],
+                    [ ".", "ErroredTaskCount", ".", "." ]
+                ],
+                "view": "singleValue",
+                "stacked": false,
+                "region": "ap-northeast-2",
+                "period": 10,
+                "stat": "Average",
+                "title": "Target Task",
+                "singleValueFullPrecision": false,
+                "sparkline": false
+            }
+        },    
+        {
+            "height": 7,
+            "width": 5,
+            "x": 2,
+            "y": 14,
+            "type": "metric",
+            "properties": {
+                "metrics": [
+                    [ "AWS/KafkaConnect", "CpuUtilization", "ConnectorName", "target-connector", { "region": "ap-northeast-2" } ],
+                    [ ".", "MemoryUtilization", ".", "." ]
+                ],
+                "view": "timeSeries",
+                "stacked": false,
+                "region": "ap-northeast-2",
+                "period": 10,
+                "stat": "Average",
+                "yAxis": {
+                    "left": {
+                        "min": 0,
+                        "max": 100
+                    }
+                },
+                "title": "Target CPU, Memory"
+            }
+        },
+        {
+            "height": 7,
+            "width": 5,
+            "x": 7,
+            "y": 14,
+            "type": "metric",
+            "properties": {
+                "metrics": [
+                    [ "AWS/KafkaConnect", "SinkRecordReadRate", "ConnectorName", "target-connector", { "region": "ap-northeast-2" } ],
+                    [ ".", "SinkRecordSendRate", ".", ".", { "region": "ap-northeast-2" } ]
+                ],
+                "view": "timeSeries",
+                "stacked": false,
+                "region": "ap-northeast-2",
+                "period": 10,
+                "stat": "Average",
+                "title": "Target Record Rate",
+                "yAxis": {
+                    "left": {
+                        "min": 0,
+                        "max": 5000
+                    }
+                }
+            }
+        },
+        {
+            "height": 7,
+            "width": 5,
+            "x": 12,
+            "y": 14,
+            "type": "metric",
+            "properties": {
+                "metrics": [
+                    [ "AWS/KafkaConnect", "BytesInPerSec", "ConnectorName", "target-connector" ],
+                    [ ".", "BytesOutPerSec", ".", "." ]
+                ],
+                "view": "timeSeries",
+                "stacked": false,
+                "region": "ap-northeast-2",
+                "period": 10,
+                "stat": "Average",
+                "title": "Target Trans Bytes/s",
+                "yAxis": {
+                    "left": {
+                        "min": 0
+                    }
+                }
+            }
+        },    
+        {
+            "height": 7,
+            "width": 5,
+            "x": 17,
+            "y": 14,
+            "type": "metric",
+            "properties": {
+                "metrics": [
+                    [ "AWS/Kafka", "OffsetLag", 
+                    "Cluster Name", "workshop-msk-cluster", 
+                    "Consumer Group", "connect-target-connector", 
+                    "Topic", "workshop.ecommerce.orders", 
+                    "Partition", "0", 
+                    { "region": "ap-northeast-2", "label": "orders" } ],
+                    [ "AWS/Kafka", "OffsetLag", 
+                    "Cluster Name", "workshop-msk-cluster", 
+                    "Consumer Group", "connect-target-connector", 
+                    "Topic", "workshop.ecommerce.product", 
+                    "Partition", "0", 
+                    { "region": "ap-northeast-2", "label": "product" } ]
+                ],
+                "region": "ap-northeast-2",
+                "view": "timeSeries",
+                "stacked": false,
+                "title": "OffsetLag",
+                "period": 10,
+                "stat": "Average",
+                "yAxis": {
+                    "left": {
+                        "min": 0
+                    }
+                }
+            }
+        },
+        {
+            "height": 6,
+            "width": 24,
+            "x": 0,
+            "y": 21,
+            "type": "log",
+            "properties": {
+                "query": "SOURCE 'WORKSHOP-MSK' | fields @timestamp, @logStream, @message\n| filter @message like 'ERROR'\n| sort @timestamp desc\n| limit 20",
+                "region": "ap-northeast-2",
+                "stacked": false,
+                "title": "Log group: /msk-cluster-log",
+                "view": "table"
+            }
+        }
+    ]
+}
